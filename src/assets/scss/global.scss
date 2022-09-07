@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@1&family=Open+Sans&display=swap');
+
+// Setup
+@import "setup/variables";
+@import "setup/functions";
+@import "setup/mixins";
+
+// Basics
+@import "basics/typography";
+@import "basics/base";
+@import "basics/helpers";
+@import "basics/layout";
+@import "basics/modals";
+@import "basics/animations";
+
+// Pages
+@import "pages/recipe-details";
+@import "pages/explore-page";
+@import "pages/home-page";
+@import "pages/signup";
+
+// Components
+@import "cmps/app-header";
+@import "cmps/recipe-list";
+@import "cmps/recipe-preview";
+@import "cmps/recipe-filter";
+@import "cmps/search-bar";
+
+.main-app {
+    // margin-top: 3.7rem;
+    padding-top: 60px;
+}

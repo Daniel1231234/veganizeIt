@@ -1,0 +1,28 @@
+.app-header {
+    // font-family: 'Montserrat', sans-serif;
+    // font-family: 'Open Sans', sans-serif;
+    background-image: linear-gradient(to right top, #abb02a, #a2ae2b, #9aad2c, #91ab2d, #89a92f, #81a730, #79a632, #71a434, #68a236, #5fa039, #569e3b, #4c9c3e);
+    padding-inline-start: 30px;
+    z-index: 2;
+    padding-inline-end: 30px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo {
+        font-weight: 600;
+        rotate: 5%;
+    }
+
+    nav {
+        display: flex;
+        gap: 5px;
+        flex-wrap: wrap;
+    }
+
+}
