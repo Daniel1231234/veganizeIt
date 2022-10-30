@@ -6,45 +6,55 @@ export const storageService = {
   remove,
 }
 
-function query(entityType, delay = 100) {
-  const entities = JSON.parse(localStorage.getItem(entityType))
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(entities)
-    }, delay)
-  })
+async function query(entityType) {
+  try {
+    const entities = await JSON.parse(localStorage.getItem(entityType))
+    if (!entities || entities.length === 0) _save(entityType, entities)
+    return entities
+  } catch (err) {
+    console.log(err)
+  }
 }
 
-function get(entityType, entityId) {
-  return query(entityType).then((entities) =>
-    entities.find((entity) => entity._id === entityId)
-  )
+async function get(entityType, entityId) {
+  try {
+    const res = await query(entityType)
+    return res.find((r) => r.id === entityId)
+  } catch (err) {
+    console.log(err)
+  }
 }
 
-function post(entityType, newEntity) {
-  // newEntity._id = _makeId()
-  return query(entityType).then((entities) => {
-    entities.push(newEntity)
-    _save(entityType, entities)
-    return newEntity
-  })
+async function post(entityType, newEntity) {
+  const loadedEntities = await query(entityType)
+  loadedEntities.push(newEntity)
+  _save(entityType, loadedEntities)
+  return newEntity
 }
 
-function put(entityType, updatedEntity) {
-  return query(entityType).then((entities) => {
-    const idx = entities.findIndex((entity) => entity._id === updatedEntity._id)
-    entities.splice(idx, 1, updatedEntity)
-    _save(entityType, entities)
+async function put(entityType, updatedEntity) {
+  try {
+    const loadedEntities = await query(entityType)
+    const idx = loadedEntities.findIndex(
+      (entity) => entity.id === updatedEntity.id
+    )
+    loadedEntities.splice(idx, 1, updatedEntity)
+    _save(entityType, loadedEntities)
     return updatedEntity
-  })
+  } catch (err) {
+    console.log(err)
+  }
 }
 
-function remove(entityType, entityId) {
-  return query(entityType).then((entities) => {
-    const idx = entities.findIndex((entity) => entity._id === entityId)
-    entities.splice(idx, 1)
-    _save(entityType, entities)
-  })
+async function remove(entityType, entityId) {
+  try {
+    const loadedEntities = await query(entityType)
+    const idx = loadedEntities.findIndex((entity) => entity.id === entityId)
+    loadedEntities.splice(idx, 1)
+    _save(entityType, loadedEntities)
+  } catch (err) {
+    console.log(err)
+  }
 }
 
 function _save(entityType, entities) {

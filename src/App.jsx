@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { AppHeader } from "./cmps/AppHeader"
 import { ExplorePage } from "./pages/ExplorePage"
 import { CheckIfVegan } from "./pages/CheckIfVegan"
+import {Scanner} from "./cmps/Scanner"
 
 import "./assets/scss/global.scss"
 
@@ -13,9 +14,10 @@ function App() {
         <AppHeader />
           <div className="main-app">
             <Routes>
-              <Route path="/" element={<HomePage />} />
+              <Route path="/" element={<HomePage />}  />
               <Route path="/explore" element={<ExplorePage />} />
               <Route path="/isvegan" element={<CheckIfVegan />} />
+              <Route path="/scanner" element={<Scanner />} />
             </Routes>
           </div>
     </BrowserRouter>

@@ -17,7 +17,7 @@
 @import "pages/recipe-details";
 @import "pages/explore-page";
 @import "pages/home-page";
-@import "pages/signup";
+@import "pages/checkIfVegan";
 
 // Components
 @import "cmps/app-header";
@@ -25,8 +25,10 @@
 @import "cmps/recipe-preview";
 @import "cmps/recipe-filter";
 @import "cmps/search-bar";
+@import "cmps/_scanner";
 
 .main-app {
-    // margin-top: 3.7rem;
     padding-top: 60px;
 }
+
+// BR7FB9JM

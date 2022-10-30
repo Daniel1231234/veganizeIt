@@ -8,7 +8,8 @@ export function AppHeader() {
       <nav>
         <Link to="/">חיפוש מתכון</Link> |{" "}
         <Link to="/explore">מתכונים מומלצים</Link>|{" "}
-        <Link to="/isvegan">זה טבעוני?</Link>
+        <Link to="/isvegan">זה טבעוני?</Link>|
+        <Link to="/scanner">בדיקת ברקוד</Link>
       </nav>
       </div>
   )

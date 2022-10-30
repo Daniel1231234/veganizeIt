@@ -1,9 +1,36 @@
-import nonVegan from "./nonVegan.json" assert { type: "json" }
-import vegan from "./canBeVegan.json" assert { type: "json" }
+import nonVegan from "../data/nonVegan.json" assert { type: "json" }
+import vegan from "../data/canBeVegan.json" assert { type: "json" }
+import veganWinesEN from "../data/wine-data-set.json" assert { type: "json" }
+import veganWinesHE from "../data/veganWines.json" assert { type: "json" }
 
 export const checkVeganService = {
   checkVegan,
   checkIngredients,
+  checkWinerie,
+}
+
+function _getWineries() {
+  const enWineriesNames = veganWinesEN.map((i) => i.winery.toLowerCase())
+  const heWineriesNames = veganWinesHE.map((i) => i.toLowerCase())
+
+  const allWines = enWineriesNames.concat(heWineriesNames)
+
+  return allWines
+}
+
+function checkWinerie(val) {
+  console.log(val)
+  if (!val || val.length === 0) return null
+  const allWines = _getWineries()
+
+  // const wineryToCheck = val.trim().toLowerCase()
+  const wineryToCheck = allWines.filter((w) =>
+    w.includes(val.trim().toLowerCase())
+  )
+  console.log(wineryToCheck)
+
+  if (allWines.includes(wineryToCheck)) return true
+  return false
 }
 
 function checkVegan(ing) {

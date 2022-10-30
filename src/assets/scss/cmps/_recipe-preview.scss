@@ -15,6 +15,8 @@
 
     img {
         filter: brightness(100%);
+        aspect-ratio: 1/1;
+        width: 100%;
 
         &:hover {
             transform: matrix(1.04, 0, 0, 1.04, 0, 0);
@@ -25,3 +27,9 @@
     }
 
 }
+
+.search-img {
+    width: 50%;
+}
+
+// 9ca54758c3e8483eace10247917a7327

@@ -1,0 +1,29 @@
+.check-vegan {
+    padding: 2rem;
+
+    h1 {
+        text-align: center;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+    }
+
+    h2 {
+        text-align: center;
+        font-weight: 900;
+
+    }
+
+    .desc {
+        text-align-last: right;
+        padding: 1rem;
+    }
+
+    .inputs {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 1rem;
+    }
+
+}

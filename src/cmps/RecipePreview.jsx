@@ -1,11 +1,15 @@
 export function RecipePreview({ recipe }) {
-  const { title, image } = recipe
+  const { name, thumbnail_url } = recipe
   
   return (
     <div className="recipe-preview">
-      <img src={image} alt="" />
+      <div className="aspect-ratio-169">
+        <div className="aspect-ratio__inner-wrapper">
+          <img src={thumbnail_url} alt="" />
+        </div>
+      </div>
       <div className="info">
-        <h2>{title}</h2>
+        <h2>{name}</h2>
       </div>
     </div>
   )
