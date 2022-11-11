@@ -5,6 +5,8 @@ import axios from "axios"
 import recipes from "../data/recipe.json" assert { type: "json" }
 
 const RECIPE_KEY = "recipe_db"
+const APP_ID = "820e3f93"
+const APP_KEY = "bca0340252a394bfe8fe86cc77f43615"
 
 var gRecipes = []
 
@@ -18,10 +20,11 @@ export const recipeService = {
 async function query() {
   try {
     const loadedRecipes = await storageService.query(RECIPE_KEY)
-    // console.log(loadedRecipes)
+    console.log(loadedRecipes)
     if (!loadedRecipes || loadedRecipes.length === 0) {
       gRecipes = await _getRecipes()
       localStorage.setItem(RECIPE_KEY, JSON.stringify(gRecipes))
+      console.log(gRecipes)
       return gRecipes
     }
     return loadedRecipes
@@ -58,18 +61,17 @@ async function save(recipe) {
 async function _getRecipes() {
   const options = {
     method: "GET",
-    url: "https://tasty.p.rapidapi.com/recipes/list",
-    params: { from: "0", size: "100", tags: "vegetarian" },
-    headers: {
-      "X-RapidAPI-Key": "2d1c68e433msh5de6b695d7183d4p1ae6a2jsnb81cb1001112",
-      "X-RapidAPI-Host": "tasty.p.rapidapi.com",
-    },
+    url: "https://api.edamam.com/api/recipes/v2?type=public&app_id=820e3f93&app_key=bca0340252a394bfe8fe86cc77f43615&health=vegan&imageSize=REGULAR",
   }
   try {
     const res = await axios.request(options)
-    // console.log(res.data.results)
-    return res.data.results
+    var loadedRecipes = res.data.hits.map((rcp) => rcp.recipe)
+    return loadedRecipes
   } catch (err) {
     console.log(err)
   }
 }
+
+
+
+

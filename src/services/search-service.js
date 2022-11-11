@@ -21,7 +21,7 @@ async function searchRecipe() {
     const options = {
       method: "GET",
       url: "https://api.spoonacular.com/recipes/complexSearch?apiKey=9ca54758c3e8483eace10247917a7327",
-      params: { diet: "vegan", number: 200 },
+      params: {diet: "vegan", number: 200},
 
       headers: {
         "Content-Type": "application/json",
@@ -39,6 +39,7 @@ async function searchRecipe() {
       return gSearch
     }
     console.log("loaded from storage yay")
+    // console.log(loadedSearchRec)
     return loadedSearchRec
   } catch (err) {
     console.log(err)

@@ -1,12 +1,15 @@
 
 import { memo } from 'react'
 import { CheckIngr } from "../cmps/CheckIngr"
+import Container from 'react-bootstrap/Container';
 import { CheckWines } from "../cmps/CheckIWines"
+
 
 
 export const CheckIfVegan = memo(() => {
   return (
     <div className="check-vegan">
+      <Container style={{backgroundColor:"burlywood"}}>
       <h1>זה טבעוני אחי?</h1>
       <hr />
       <div className='desc'>
@@ -22,8 +25,9 @@ export const CheckIfVegan = memo(() => {
       <h2>אנחנו פה בשבילכם</h2>
       <div className='inputs'>
         <CheckIngr />
-        <CheckWines />
+          <CheckWines />
       </div>
+     </Container>
     </div>
   )
 })

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {Scroll} from './Scroll';
-import {SearchList} from './SearchList';
+import { SearchList } from './SearchList';
+import { RecipeList } from './RecipeList';
 
 export function SearchBar({ details }) {
 
@@ -33,7 +34,7 @@ export function SearchBar({ details }) {
     if (searchShow) {
       return (
         <Scroll>
-          <SearchList filteredrecipes={filteredrecipes} />
+          <RecipeList recipes={filteredrecipes} />
         </Scroll>
       );
 
@@ -44,17 +45,16 @@ export function SearchBar({ details }) {
   return (
     <section className="search-bar">
       <div className="search-container">
-      <h2> חפש מתכונים טעימים, מהירים, טעימים ללא רכיבים מן החי!</h2>
- 
-        <input 
-          id="search"
-          className="search-input"
-          type = "search" 
-          placeholder="אני רוצה להכין..." 
-          onChange = {handleChange}
-          />
-
-          </div>
+            <h2> חפש מתכונים טעימים, מהירים, טעימים ללא רכיבים מן החי!</h2>
+            <input 
+              id="search"
+              className="search-input"
+              type = "search" 
+              placeholder="אני רוצה להכין..." 
+              onChange = {handleChange}
+              />
+      </div>
+      <hr />
       {searchList()}
     </section>
   );

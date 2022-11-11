@@ -5,8 +5,10 @@
     opacity: 0.8;
     padding-block: 1rem;
     position: absolute;
-    width: 100%;
-    top: 15%;
+    top: 2%;
+    width: 90%;
+    border-radius: 30px;
+
 
     .search-container {
         display: flex;
@@ -51,5 +53,20 @@
         &>.search-bar {
             opacity: 1;
         }
+    }
+}
+
+.scroll {
+    ul {
+        transform: translateY(0%);
+        transition: transform 1s;
+
+    }
+}
+
+
+@media screen and (max-width:660px) {
+    .search-bar {
+        padding: 1rem;
     }
 }
