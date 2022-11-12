@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 import { SearchBar } from "../cmps/SearchBar"
 import { searchService } from "../services/search-service";
-import bgcImg from "../assets/imgs/img-bgc.jpg"
 
 
 
@@ -27,7 +26,7 @@ export function SearchRecipe() {
   }
 
   return (
-    <div className="home-page" style={{backgroundImage: "url(" + bgcImg + ")"}}>
+    <div className="search-recipe-page">
       <SearchBar details={recipes} />
     </div>
   )

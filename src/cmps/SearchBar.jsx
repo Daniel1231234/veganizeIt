@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {Scroll} from './Scroll';
-import { SearchList } from './SearchList';
 import { RecipeList } from './RecipeList';
 
 export function SearchBar({ details }) {

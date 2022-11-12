@@ -3,30 +3,44 @@ import { memo } from 'react'
 import { CheckIngr } from "../cmps/CheckIngr"
 import Container from 'react-bootstrap/Container';
 import { CheckWines } from "../cmps/CheckIWines"
-
-
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import { useState } from 'react';
 
 export const CheckIfVegan = memo(() => {
+  const [show, setShow] = useState(false)
+  const [data, setData] = useState('')
+  const [veg, setVeg] = useState(false)
+  
+  const handleClose = () => setShow(false);
+  const handleShow = (val, data) => {
+    if (val === null) val = false
+    setShow(true)
+    setVeg(val)
+    setData(data)
+    console.log(data, val)
+  }
+
   return (
     <div className="check-vegan">
-      <Container style={{backgroundColor:"burlywood"}}>
-      <h1>זה טבעוני אחי?</h1>
-      <hr />
-      <div className='desc'>
-        <p>כמה פעמים עמדתם אומללים מול בקבוק יין לא מוכר וחיפשתם על התווית את המרכיבים כדי לבדוק האם תוכלו להשתכר בארוחת חג?</p>
-        <p>מתי שמתם לב שאף פעם המידע הזה לא רשום על התווית ונשארתם סקחים כשהדודה התעקשה להמשיך עם ההגדה עד הסוף?</p>
-      </div>
-      <hr />
-      <div className='desc'>
-        <p>כמה פעמים ישבתם עם החבר'ה ואיזה חבר הביא חטיף שאתם מתים לטעום אבל כתוב על האריזה בסינית?</p>
-        <p>ואיך היה הבמבה שקניתם בתחנת דלק בסוף הערב ואכלתם לבד באוטו?</p>
-      </div>
-      <hr />
-      <h2>אנחנו פה בשבילכם</h2>
-      <div className='inputs'>
-        <CheckIngr />
-          <CheckWines />
-      </div>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header>
+          <Modal.Title>
+            {veg ? <p>{data} טבעוני!</p> : <p>{ data} לא טבעוני </p>}
+          </Modal.Title>
+        </Modal.Header>
+         <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            סגור
+          </Button>
+        </Modal.Footer>
+      </Modal>
+      <Container>
+        {/* <h2>בחר </h2> */}
+        <div className='inputs'>
+            <CheckIngr  isvegan={handleShow}  />
+            <CheckWines isvegan={handleShow} />
+        </div>
      </Container>
     </div>
   )

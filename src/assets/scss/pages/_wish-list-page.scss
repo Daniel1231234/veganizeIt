@@ -1,0 +1,41 @@
+.wushlist-page {
+    width: 90%;
+    margin: auto;
+
+    h1 {
+        margin-block-end: 30px;
+    }
+
+    .wish-preview {
+        width: 200px;
+        margin: auto;
+        text-align: center;
+
+        img {
+            // min-width: 200px;
+            border-radius: 50px;
+        }
+    }
+
+}
+
+// .wishlist {
+
+//     li {
+//         background-color: #fff;
+//         opacity: 0.8;
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+//         justify-content: center;
+//         padding: 2rem;
+
+//         .card {
+//             display: flex;
+//             flex-direction: column;
+//             justify-content: center;
+//             align-items: center;
+
+//         }
+//     }
+// }

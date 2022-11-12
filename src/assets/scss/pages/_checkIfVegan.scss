@@ -1,6 +1,7 @@
 .check-vegan {
-    padding: 2rem;
-
+    height: 75vh;
+        margin: auto;
+        display: flex;
     h1 {
         text-align: center;
         font-weight: 600;
@@ -19,11 +20,15 @@
     }
 
     .inputs {
-        display: flex;
-        flex-direction: row;
+    display: flex;
+        flex-direction: column;
         align-items: center;
-        justify-content: space-evenly;
+        gap: 1rem;
+            font-weight: 600;
         padding: 1rem;
+        width: 800px;
+            margin: auto;
+            border: 1px solid black;
     }
 
 }

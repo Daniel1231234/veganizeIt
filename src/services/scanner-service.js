@@ -1,9 +1,17 @@
-import { httpService } from "./http.service"
+import barcodes from "../data/td.json" assert {type: "json"}
 
-export const scanService = {
+export const scannerService = {
   getBarcodes,
+  checkIfVean,
 }
-async function getBarcodes() {
-  const res = await httpService.get("product")
-  console.log(res)
+
+function getBarcodes() {
+  barcodes.shift()
+  return barcodes
+}
+
+function checkIfVean(barcode) {
+  const isVegan = barcodes.find((res) => res === barcode)
+  if (!isVegan) return false
+  return true
 }

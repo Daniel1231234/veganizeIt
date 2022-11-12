@@ -1,79 +1,50 @@
-import React, { useEffect } from "react";
-import config from "./scanner-config.json";
-import Quagga from "quagga";
+// Html5QrcodePlugin.jsx
 
-const Scanner = props => {
-  const { onDetected } = props;
+import { Html5QrcodeScanner } from "html5-qrcode";
+import React, { useEffect, useState } from "react";
 
+const qrcodeRegionId = "html5qr-code-full-region";
+
+export const Scanner = (props) => {
+  const [config, setConfig] = useState(null)
+    const [startScan, setStartScan] = useState(false)
+
+       function createConfig(props) {
+            var config = {};
+            if (props.fps) {
+            config.fps = props.fps;
+            }
+            if (props.qrbox) {
+            config.qrbox = props.qrbox;
+            }
+            if (props.aspectRatio) {
+            config.aspectRatio = props.aspectRatio;
+            }
+            if (props.disableFlip !== undefined) {
+            config.disableFlip = props.disableFlip;
+            }
+            return config;
+        }
+  
   useEffect(() => {
-    Quagga.init(config, err => {
-      if (err) {
-        console.log(err, "error msg");
-      }
-      Quagga.start();
-      return () => {
-        Quagga.stop()
-      }
-    });
+     setStartScan(true)
+     var config = createConfig(props)
+     var verbose = props.verbose === false;
+     // console.log(config)
+     setConfig(config)
+     // Suceess callback is required.
+     if (!(props.qrCodeSuccessCallback )) {
+            throw "qrCodeSuccessCallback is required callback.";
+          }
+         
+          const html5QrcodeScanner = new Html5QrcodeScanner(
+            qrcodeRegionId, config, verbose);
+            html5QrcodeScanner.render(
+              props.qrCodeSuccessCallback,
+              props.qrCodeErrorCallback);
+            }, [])
 
-    Quagga.onProcessed(result => {
-      var drawingCtx = Quagga.canvas.ctx.overlay,
-        drawingCanvas = Quagga.canvas.dom.overlay;
-
-      if (result) {
-        if (result.boxes) {
-          drawingCtx.clearRect(
-            0,
-            0,
-            Number(drawingCanvas.getAttribute("width")),
-            Number(drawingCanvas.getAttribute("height"))
-          );
-          result.boxes
-            .filter(function(box) {
-              return box !== result.box;
-            })
-            .forEach(function(box) {
-              Quagga.ImageDebug.drawPath(box, { x: 0, y: 1 }, drawingCtx, {
-                color: "green",
-                lineWidth: 2
-              });
-            });
-        }
-
-        if (result.box) {
-          Quagga.ImageDebug.drawPath(result.box, { x: 0, y: 1 }, drawingCtx, {
-            color: "#00F",
-            lineWidth: 2
-          });
-        }
-
-        if (result.codeResult && result.codeResult.code) {
-          Quagga.ImageDebug.drawPath(
-            result.line,
-            { x: "x", y: "y" },
-            drawingCtx,
-            { color: "red", lineWidth: 3 }
-          );
-        }
-      }
-    });
-
-    Quagga.onDetected(detected);
-  }, []);
-
-  const detected = result => {
-    onDetected(result.codeResult.code);
-  };
-
-  return (
-    // If you do not specify a target,
-    // QuaggaJS would look for an element that matches
-    // the CSS selector #interactive.viewport
-    <div id="interactive" className="viewport" />
-  );
+   return <div id={qrcodeRegionId} className="container" />;
 };
-
-export default Scanner;
-
 
 

@@ -14,23 +14,20 @@ function _getWineries() {
   const heWineriesNames = veganWinesHE.map((i) => i.toLowerCase())
 
   const allWines = enWineriesNames.concat(heWineriesNames)
-
   return allWines
 }
 
 function checkWinerie(val) {
-  console.log(val)
   if (!val || val.length === 0) return null
   const allWines = _getWineries()
+  const wineryToCheck = val.trim().toLowerCase()
 
-  // const wineryToCheck = val.trim().toLowerCase()
-  const wineryToCheck = allWines.filter((w) =>
-    w.includes(val.trim().toLowerCase())
+  const res = allWines.find(
+    (wine) => wine.split(" ").indexOf(wineryToCheck) > -1
   )
-  console.log(wineryToCheck)
-
-  if (allWines.includes(wineryToCheck)) return true
-  return false
+  console.log(res)
+  if (res) return true
+  else return null
 }
 
 function checkVegan(ing) {
@@ -38,10 +35,14 @@ function checkVegan(ing) {
   const ingToCheck = ing.trim().toLowerCase()
   const nonVeganList = nonVegan.includes(ingToCheck)
   if (nonVeganList === true) return false
-  const ingredientWords = ingToCheck.split(" ")
-  const isIngVegan = ingredientWords.every((word) => _isVeganIngredient(word))
-  if (ingredientWords.length > 1 && isIngVegan) return true
-  return true
+  console.log(vegan)
+
+  const res = vegan.find((ing) => ing.split(" ").indexOf(ingToCheck) > -1)
+  if (res) return true
+  // const ingredientWords = ingToCheck.split(" ")
+  // const isIngVegan = ingredientWords.every((word) => _isVeganIngredient(word))
+  // if (ingredientWords.length > 1 && isIngVegan) return true
+  // return true
 }
 
 function checkIngredients(ingredientsToCheck) {
