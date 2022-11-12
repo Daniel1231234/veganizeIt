@@ -24,9 +24,6 @@ export function AppHeader() {
                       <Link to="/recipe" onClick={() => {setIsNavExpanded(!isNavExpanded)}}>חיפוש מתכון</Link> {" "}
                     </li>
                     <li>
-                      <Link to="/explore"  onClick={() => {setIsNavExpanded(!isNavExpanded)}}>מתכונים מומלצים {" "}</Link>
-                    </li>
-                    <li>
                       <Link to="/isvegan"  onClick={() => {setIsNavExpanded(!isNavExpanded)}}>זה טבעוני?</Link>
                     </li>
                     <li>

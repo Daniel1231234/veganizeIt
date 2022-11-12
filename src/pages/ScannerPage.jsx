@@ -21,7 +21,7 @@ export function ScannerPage() {
 }
 
   return (
-    <div className="scanner-page container">
+    <div className="scanner-page">
       <Scanner fps={10} qrbox={250} disableFlip={false} qrCodeSuccessCallback={onNewScanResult} /> 
       <p>ברקוד:</p> {decodedText}
            {isVegan === null ? ' ' : (isVegan ? <h3>המרכיב טבעוני! בתיאבון</h3> : <h3>המרכיב לא טבעוני</h3>)}
