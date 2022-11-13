@@ -35,13 +35,11 @@ export const CheckIfVegan = memo(() => {
           </Button>
         </Modal.Footer>
       </Modal>
-      <Container>
         {/* <h2>בחר </h2> */}
         <div className='inputs'>
             <CheckIngr  isvegan={handleShow}  />
             <CheckWines isvegan={handleShow} />
         </div>
-     </Container>
     </div>
   )
 })
