@@ -10,27 +10,21 @@ export function AppHeader() {
   </svg>)
 
 
-  
-  
-
   return (
     <div className="app-header">
       <nav>
-        <Link to="/" className="logo"><h2 className="logo">טבען-לי</h2></Link>
+        <Link to="/veganizeIt/" className="logo"><h2 className="logo">טבען-לי</h2></Link>
         <button className="hamburger" onClick={() => {setIsNavExpanded(!isNavExpanded)}}> {hamburger}</button>
             <div className={isNavExpanded ? "nav-menu expanded" : "nav-menu"}>
                 <ul>
                     <li>
-                      <Link to="/recipe" onClick={() => {setIsNavExpanded(!isNavExpanded)}}>חיפוש מתכון</Link> {" "}
+                      <Link to="/veganizeIt/" className={isNavExpanded ? "home-nav expanded" : "home-nav"} onClick={() => {setIsNavExpanded(!isNavExpanded)}}>דף הבית</Link>
                     </li>
                     <li>
-                      <Link to="/isvegan"  onClick={() => {setIsNavExpanded(!isNavExpanded)}}>זה טבעוני?</Link>
+                      <Link to="/veganizeIt/isvegan"  onClick={() => {setIsNavExpanded(!isNavExpanded)}}>זה טבעוני?</Link>
                     </li>
                     <li>
-                      <Link to="/scanner"  onClick={() => {setIsNavExpanded(!isNavExpanded)}}>בדיקת ברקוד</Link>
-                    </li>
-                    <li>
-                      <Link to="/" className={isNavExpanded ? "home-nav expanded" : "home-nav"} onClick={() => {setIsNavExpanded(!isNavExpanded)}}>דף הבית</Link>
+                      <Link to="/veganizeIt/scanner"  onClick={() => {setIsNavExpanded(!isNavExpanded)}}>בדיקת ברקוד</Link>
                     </li>
                 </ul>
             </div>

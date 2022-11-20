@@ -2,6 +2,8 @@
     background-image: linear-gradient(to right top, #abb02a, #a2ae2b, #9aad2c, #91ab2d, #89a92f, #81a730, #79a632, #71a434, #68a236, #5fa039, #569e3b, #4c9c3e);
     height: 60px;
     font-family: 'Open Sans', sans-serif;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+        height: 5rem;
 
     nav {
         display: flex;
@@ -17,7 +19,7 @@
         .logo {
             font-weight: 600;
             text-decoration: none;
-            font-size: 1.3rem;
+            font-size: 2rem;
             margin-right: 1rem;
             color: white;
         }
