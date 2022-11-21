@@ -1,6 +1,7 @@
 import { useRef } from "react"
+import { FormWrapper } from "../UI/Card"
 
-export function CheckWines({ isvegan }) {
+export function CheckWines({ isvegan, open, setOpen }) {
   const wineRef = useRef()
     
   
@@ -14,13 +15,7 @@ export function CheckWines({ isvegan }) {
     
   return (
       <div className="check-wines bottom-divider">
-        <form onSubmit={submit} className="simple-form">
-          <label>חפש על פי יקב: </label>
-          <input type="search" id="wine-check" ref={wineRef} placeholder="רשום שם של יקב"  />
-          <button className="simple-button">
-          <i className="fa-solid fa-magnifying-glass"></i>
-          </button>
-      </form>
+      <FormWrapper placeholder={"לדוגמא: תבור"} btnClick={() => {setOpen(!open)}} openUl={open} getRef={wineRef} label={"רשום שם של יקב"} muted={"שימו לב כי יש מוצרים ורכיבים הרשומים באנגלית"} submit={submit} />
       </div>
     )
   }

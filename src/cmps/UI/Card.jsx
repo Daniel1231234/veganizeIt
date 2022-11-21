@@ -1,7 +1,23 @@
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Col from 'react-bootstrap/Col';
 
+import Row from 'react-bootstrap/Row';
 
+export function FormWrapper(props) {
+  return (
+    <Form onSubmit={props.submit} className="" >
+ 
+        <Form.Label>{props.label}</Form.Label>
+        <Form.Control  size="sm" type="search"  ref={props.getRef} placeholder={props.placeholder} />
+        <Form.Text className="text-muted">
+          {props.muted}
+        </Form.Text>
 
-export const Card = props => {
-  return <div className="card center-block " style={{padding:'1rem', boxShadow: '0 2px 8px rgba(0, 0, 0, 0.25)', borderRadius: '14px', backgroundColor: 'white', width:"60%", marginTop:'50px'}}>{props.children}</div>
-};
+      <Button  size="sm" variant="success" type="submit" aria-expanded={props.openUl}  aria-controls="collapse" onClick={props.btnClick}>
+        חפש
+      </Button>
+    </Form>
+  );
+}
 

@@ -3,11 +3,26 @@ import veganWinesHE from "../data/veganWines.json" assert {type: "json"}
 
 export const checkWineService = {
   checkWinerie,
-  checkFixedVal,
+}
+
+function checkIfValIsSplited(val) {
+  if (val.charAt(" ")) {
+    const allWines = getWineries()
+    const wineryNames = allWines.map((wine) => {
+      return wine.name
+    })
+    let splitedVals = val.split(" ")
+
+    // const isWineSubset = isSubset(splitedVals, wineryNames)
+    // console.log(isWineSubset)
+  }
 }
 
 function checkWinerie(val) {
   if (!val || val.length === 0) return null
+  // checkIfValIsSplited(val)
+  const isPerfectMatch = checkIfMatchVals(val)
+  if (isPerfectMatch) return isPerfectMatch
   const allWines = getWineries()
   const wineryToCheck = val.trim().toLowerCase()
 
@@ -16,13 +31,6 @@ function checkWinerie(val) {
   })
   console.log(filteredWineries)
   return filteredWineries
-}
-
-function checkFixedVal(val) {
-  const fixedVal = val.trim().toLowerCase()
-  console.log(fixedVal)
-  const isWine = checkWinerie(fixedVal)
-  console.log(isWine)
 }
 
 export function getWineries() {
@@ -57,3 +65,12 @@ function _makeId(length = 5) {
 
   return text
 }
+
+function checkIfMatchVals(val) {
+  const totalWines = getWineries()
+  const isMatch = totalWines.filter(
+    (wine) => wine.name === val.trim() && wine.name.length === val.trim().length
+  )
+  if (isMatch.length === 1) return isMatch
+}
+

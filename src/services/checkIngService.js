@@ -10,10 +10,22 @@ export const checkIngSerivce = {
 let gNonVeganIngs = _setInitialDataNonVegan()
 let gVeganIngs = _setInitialDataVegan()
 
+
+
+function checkIfMatchVals(val) {
+  const totalIngs = gNonVeganIngs.concat(gVeganIngs)
+  const isMatch = totalIngs.filter((ing) => ing.name === val)
+  if (isMatch.length === 1) return isMatch
+  return
+}
+
 function checkVegan(ing) {
+  const isPerfectMatch = checkIfMatchVals(ing)
+  if (isPerfectMatch) {
+    return isPerfectMatch
+  }
   const ingToCheck = ing.trim().toLowerCase()
   const isIngVegan = _checkIfVegan(ingToCheck)
-  console.log(isIngVegan)
   return isIngVegan
 }
 
@@ -33,7 +45,6 @@ function _checkIfVegan(enteredIngName) {
   const nonVeganIngs = gNonVeganIngs.filter(
     (i) => i.name.split(" ").indexOf(enteredIngName) > -1
   )
-  console.log(veganIngs, nonVeganIngs)
 
   if (veganIngs.length > 0 && nonVeganIngs.length > 0) {
     let mixed = veganIngs.concat(nonVeganIngs)

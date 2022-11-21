@@ -102,8 +102,8 @@
 
 // Dividing
 .bottom-divider {
-    padding-bottom: 15px;
-    margin-bottom: 15px;
+    padding-bottom: 7px;
+        // margin-bottom: 15px;
     border-bottom: 1px solid lightgray;
 }
 
@@ -116,12 +116,13 @@
     flex-direction: column;
 
     &>*:not(:last-child) {
-        margin-bottom: 10px;
+        margin-bottom: 4px;
+            // margin-bottom: 10px;
     }
 
     input:not([type="checkbox"]),
     button {
-        padding: 5px 8px;
+        // padding: 5px 8px;
         width: 100%;
     }
 
@@ -136,8 +137,10 @@
     display: none;
 }
 .modal-container {
-    position: fixed;
-    top: 15vh;
+    position: absolute;
+        margin: auto;
+        margin-top: 16px;
+        // top: 27vh;
     left: 5%;
     width: 90%;
     background-color: white;
@@ -152,6 +155,11 @@
         left: calc(50% - 20rem);
     }
 }
+// @media (max-width:575px) {
+//     .modal-container {
+//         // top: 31vh;
+//     }
+// }
 @keyframes slide-down {
     from {
         opacity: 0;
@@ -161,10 +169,4 @@
         opacity: 1;
         transform: translateY(0);
     }
-}
-.meals {
-    max-width: 60rem;
-    width: 90%;
-    margin: 2rem auto;
-    animation: meals-appear 1s ease-out forwards;
 }
