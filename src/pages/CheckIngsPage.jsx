@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { checkIngSerivce } from "../services/checkIngService"
 import { ModalWrapper } from "../cmps/UI/ModalWrapper";
 import classes from "./CheckIfVegan.module.css"
-import { ButtonBack } from "../cmps/UI/ButtonBack";
 import { Link } from "react-router-dom";
 
 export const CheckIngsPage = () => {

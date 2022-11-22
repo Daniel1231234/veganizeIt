@@ -20,7 +20,6 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/winery" element={<CheckWinePage />} />
               <Route path="/ings" element={<CheckIngsPage />} />
-              {/* <Route path="/veganizeIt/scanner" element={<ScannerPage />} /> */}
             </Routes>
           </div>
   )
