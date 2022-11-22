@@ -21,7 +21,7 @@ export function AppHeader(props) {
         <h1>טבען-לי</h1>
         <div className={classes.navs}>
           <Link to="/winery">יקבים</Link>
-          <Link  to="/ings">מרכיבים</Link>
+          <Link to="/ings">מרכיבים</Link>
         </div>
       </header>
       <div  className={classes['main-image']}>

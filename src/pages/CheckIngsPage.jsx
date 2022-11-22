@@ -7,7 +7,7 @@ import classes from "./CheckIfVegan.module.css"
 import { ButtonBack } from "../cmps/UI/ButtonBack";
 import { Link } from "react-router-dom";
 
-export const CheckIfVegan = () => {
+export const CheckIngsPage = () => {
   const [show, setShow] = useState(false)
   const [content, setContent] = useState('')
   const [title, setTitle] = useState('')

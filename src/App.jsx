@@ -2,7 +2,7 @@ import React from "react"
 import { HomePage } from "./pages/HomePage"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { AppHeader } from "./cmps/AppHeader"
-import { CheckIfVegan } from "./pages/CheckIngsPage"
+import { CheckIngsPage } from "./pages/CheckIngsPage"
 import { CheckWinePage } from "./pages/CheckWinePage"
 import { useState } from "react"
 // import ImgContext from "./store/store"
@@ -18,8 +18,8 @@ function App() {
             <AppHeader img={imgUrl} />
             <Routes>
               <Route path="/" element={<HomePage />} />
-              <Route path="/ings" element={<CheckIfVegan />} />
               <Route path="/winery" element={<CheckWinePage />} />
+              <Route path="/ings" element={<CheckIngsPage />} />
               {/* <Route path="/veganizeIt/scanner" element={<ScannerPage />} /> */}
             </Routes>
           </div>

@@ -12,8 +12,8 @@ export function HomePage() {
           <p>האתר שמאפשר לכם לחפש יינות ומוצרים ולבדוק האם הם טבעוניים.</p>
       </div>
       <div className="home-links" >
-        <LinkCard title="לבדיקת מרכיבי מזון" dir="/ings" dirName="לחץ כאן!" />
         <LinkCard title="לבדיקת יינות ויקבים" dir="/winery" dirName="לחץ כאן!" />
+        <LinkCard title="לבדיקת מרכיבי מזון" dir="/ings" dirName="לחץ כאן!" />
       </div>
     </div>
   )
