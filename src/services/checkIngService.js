@@ -5,11 +5,16 @@ import {getWineries} from "./checkWineService"
 export const checkIngSerivce = {
   checkVegan,
   checkFixedVal,
+  getAllIngs,
 }
 
 let gNonVeganIngs = _setInitialDataNonVegan()
 let gVeganIngs = _setInitialDataVegan()
 
+function getAllIngs() {
+  const totalIngs = gNonVeganIngs.concat(gVeganIngs)
+  return totalIngs
+}
 
 
 function checkIfMatchVals(val) {

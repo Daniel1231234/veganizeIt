@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Scanner } from "../cmps/Scanner/Scanner"
+import { ScannerCmp } from "../cmps/Scanner/ScannerCmp";
 import { scannerService } from "../services/scanner-service";
 
 export function ScannerPage() {
@@ -40,7 +41,7 @@ console.log(val);
 
   return (
     <div className="scanner-page">
-      <Scanner fps={7} qrbox={QrDimensions} disableFlip={false} qrCodeSuccessCallback={onNewScanResult} handleScan={handleScan} stop={stopScan} aspectRatio="1/1"  /> 
+      <Scanner fps={7} qrbox={QrDimensions} disableFlip={false} qrCodeSuccessCallback={onNewScanResult} handleScan={handleScan} stop={stopScan} aspectRatio="1/1" /> 
       <p>ברקוד:</p> {decodedText}
       {isVegan === null ? ' ' : (isVegan ? <h3>המרכיב טבעוני! בתיאבון</h3> : <h3>המרכיב לא טבעוני</h3>)}
     </div>

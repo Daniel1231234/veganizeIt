@@ -7,3 +7,5 @@ export default defineConfig({
   base: "/veganizeIt/",
   plugins: [react(), basicSsl],
 })
+
+// git remote add origin https://github.com/Daniel1231234/veganizeIt.git

@@ -1,21 +1,41 @@
-import { useRef } from "react"
-import { FormWrapper } from "../UI/Card"
+import { useState } from "react"
+
+import { checkWineService } from "../../services/checkWineService"
+import { FormWrapper } from "../UI/FormWrapper"
 
 export function CheckWines({ isvegan, open, setOpen }) {
-  const wineRef = useRef()
-    
+    const [searchInput, setSearchInput] = useState("")
+    const totalWines = checkWineService.getWineries()
   
   const submit = (e) => {
     e.preventDefault()
-    const wineVal = wineRef.current.value 
-   if (wineVal.length === 0 || !wineVal) return
-    isvegan(wineVal)
-    wineRef.current.value = ''
+    isvegan(searchInput)
   }
+
+   function handleInputVal (val)  {
+    // console.log('fromInputVal => ', val);
+    setSearchInput(val)
+  }
+  
+  
+  const getSelectedItem = (val) => {
+    // console.log(val);
+    isvegan(val)
+  }
+  
     
   return (
       <div className="check-wines bottom-divider">
-      <FormWrapper placeholder={"לדוגמא: תבור"} btnClick={() => {setOpen(!open)}} openUl={open} getRef={wineRef} label={"רשום שם של יקב"} muted={"שימו לב כי יש מוצרים ורכיבים הרשומים באנגלית"} submit={submit} />
+      <FormWrapper
+        placeholder={"לדוגמא: תבור"}
+        btnClick={() => { setOpen(!open) }}
+        onSelect={getSelectedItem}
+        handleInputVal={handleInputVal}
+        openUl={open} 
+        label={"רשום שם של יקב"}
+        muted={"שים לב! חלק מהמוצרים והרכיבים במאגר רשומים באנגלית"}
+        submit={submit}
+        items={totalWines} />
       </div>
     )
   }

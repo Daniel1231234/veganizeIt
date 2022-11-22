@@ -4,33 +4,45 @@ import Navbar from 'react-bootstrap/Navbar';
 import { LinkContainer } from 'react-router-bootstrap'
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
-export function AppHeader() {
+
+
+
+
+import classes from "./Header.module.css"
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+
+export function AppHeader(props) {
+    const [theme, setTheme] = useState(true);
+
   return (
     <>
-      <Navbar  bg="dark" variant="dark" expand="sm" className="mb-1" style={{lineHeight:'0'}}>
+      <header className={classes.header}>
+        <h1>טבען-לי</h1>
+        <div className={classes.navs}>
+          <Link to="/veganizeIt/winery">יקבים</Link>
+          <Link  to="/veganizeIt/ings">מרכיבים</Link>
+        </div>
+      </header>
+      <div  className={classes['main-image']}>
+        <img src={props.img} alt="" />
+      </div>
+
+
+
+      {/* <Navbar  bg="dark" variant="dark"  className="mb-1" style={{lineHeight:'0'}}>
         <Container>
       
           <LinkContainer to="/veganizeIt/">
-          <Navbar.Brand>טבען-לי</Navbar.Brand>
+            <Navbar.Brand >
+            <div className='logo'>
+              טבען-לי
+            </div>
+            </Navbar.Brand>
             </LinkContainer>
           
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-        
-              <LinkContainer to="/veganizeIt/isvegan" className="mb-2">
-              <Nav.Link>זה טבעוני?</Nav.Link>
-              </LinkContainer>
-
-         
-              <LinkContainer to="/veganizeIt/scanner" className="mb-2">
-              <Nav.Link>ברקוד</Nav.Link>
-              </LinkContainer>
-
-            </Nav>
-          </Navbar.Collapse>
         </Container>
-      </Navbar>
+      </Navbar> */}
     </>
   );
 }

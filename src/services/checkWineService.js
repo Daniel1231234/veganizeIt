@@ -3,6 +3,7 @@ import veganWinesHE from "../data/veganWines.json" assert {type: "json"}
 
 export const checkWineService = {
   checkWinerie,
+  getWineries,
 }
 
 function checkIfValIsSplited(val) {
