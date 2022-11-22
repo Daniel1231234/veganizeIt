@@ -64,7 +64,7 @@ import { Link } from "react-router-dom";
                 <h2 className="text-center">יינות ויקבים </h2>
                  <CheckWines isvegan={handleShowWine}  />
             </div>    
-                <Link to="/veganizeIt/">
+                <Link to="/">
                 חזרה לדף הבית
                 </Link>
         </div>

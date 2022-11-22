@@ -61,7 +61,7 @@ export const CheckIfVegan = () => {
       <h2 className="text-center">מרכיבים</h2>
         <CheckIngr isvegan={handleShowIng} />
       </div>
-          <Link to="/veganizeIt/">
+          <Link to="/">
                 חזרה לדף הבית
           </Link>
       </div>

@@ -14,17 +14,15 @@ function App() {
   const [showImg, setShowImg] = useState(false)
 
   return (
-    <BrowserRouter>
           <div className="main-app" >
-        <AppHeader img={imgUrl} />
+            <AppHeader img={imgUrl} />
             <Routes>
-              <Route path="/veganizeIt/" element={<HomePage />} />
-              <Route path="/veganizeIt/ings" element={<CheckIfVegan />} />
-              <Route path="/veganizeIt/winery" element={<CheckWinePage />} />
+              <Route path="/" element={<HomePage />} />
+              <Route path="/ings" element={<CheckIfVegan />} />
+              <Route path="/winery" element={<CheckWinePage />} />
               {/* <Route path="/veganizeIt/scanner" element={<ScannerPage />} /> */}
             </Routes>
           </div>
-    </BrowserRouter>
   )
 }
 
