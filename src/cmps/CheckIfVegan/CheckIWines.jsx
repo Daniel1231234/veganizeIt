@@ -1,25 +1,37 @@
+import { useEffect } from "react"
 import { useState } from "react"
 
 import { checkWineService } from "../../services/checkWineService"
 import { FormWrapper } from "../UI/FormWrapper"
 
 export function CheckWines({ isvegan, open, setOpen }) {
-    const [searchInput, setSearchInput] = useState("")
-    const totalWines = checkWineService.getWineries()
+  const [searchInput, setSearchInput] = useState("")
+  const [totalWines, setTotalWines] = useState([])
+   
+  
+  
+  useEffect(() => {
+    const load = async () => {
+      const wines = await checkWineService.getWineries()
+      setTotalWines(wines)
+    }
+
+    load()
+  }, [])
   
   const submit = (e) => {
     e.preventDefault()
+    console.log(searchInput);
     isvegan(searchInput)
   }
 
    function handleInputVal (val)  {
-    // console.log('fromInputVal => ', val);
     setSearchInput(val)
   }
   
   
   const getSelectedItem = (val) => {
-    // console.log(val);
+    console.log(val);
     isvegan(val)
   }
   

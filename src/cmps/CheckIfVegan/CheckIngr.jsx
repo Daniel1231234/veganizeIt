@@ -2,14 +2,25 @@ import { useState } from "react"
 import { checkIngSerivce } from "../../services/checkIngService"
 import { FormWrapper } from "../UI/FormWrapper"
 import useDetectKeyboardOpen from "use-detect-keyboard-open"
+import { useEffect } from "react"
 
 
 
 export function CheckIngr({ isvegan, open, setOpen }) {
   const [searchInput, setSearchInput] = useState("")
-  const totalIngs = checkIngSerivce.getAllIngs()
+  const [totalIngs, setTotalIngs] = useState("")
+  // const totalIngs = checkIngSerivce.getAllIngs()
   const isKeyboardOpen = useDetectKeyboardOpen()
 
+
+  useEffect(() => {
+    const load = async () => {
+      const ings = await checkIngSerivce.getAllIngs()
+      setTotalIngs(ings)
+    }
+  
+  load()
+  }, [])
 
 
   const checkVegan = (e) => {

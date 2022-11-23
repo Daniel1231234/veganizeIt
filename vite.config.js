@@ -4,8 +4,12 @@ import basicSsl from "@vitejs/plugin-basic-ssl"
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/veganizeIt/",
   plugins: [react(), basicSsl],
+  build: {
+    outDir: "../backend/public",
+    emptyOutDir: true,
+  },
 })
 
 // git remote add origin https://github.com/Daniel1231234/veganizeIt.git
+// base: "/veganizeIt/",

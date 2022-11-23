@@ -14,18 +14,17 @@ import { Link } from "react-router-dom";
    const [title, setTitle] = useState('')
         
 
-    const handleShowWine = (enteredWine) => {
-        let isWineVegan
-        if (typeof enteredWine === 'string') isWineVegan = checkWineService.checkWinerie(enteredWine)
-        if (typeof enteredWine === 'object') isWineVegan = checkWineService.checkWinerie(enteredWine.name)
-        console.log(isWineVegan);
-        if (!isWineVegan || isWineVegan.length === 0) {
-        setModalContent(null)
-        setShow(true)
-        return
-      }
-        setModalContent(isWineVegan[0].isVegan, isWineVegan[0].name)
-        setShow(true)
+     const handleShowWine = async (enteredWine) => {
+        let winery =  await checkWineService.checkWinerie(enteredWine)
+         console.log(winery, ' FINEL DEST!');
+         if (winery) {
+             setModalContent(winery.isVegan, winery.name)
+             setShow(true)
+         } else {
+            setModalContent(null)
+            setShow(true)
+         }
+         
      }
      
      const handleClose = (e) => {
@@ -33,7 +32,6 @@ import { Link } from "react-router-dom";
     }
     
      const setModalContent = (resIsVegan, resItem) => {
-        console.log(resIsVegan);
         if (resIsVegan) {
             setTitle(`${resItem} טבעוני!`)
             setContent(`${resItem} טבעוני!`)
@@ -48,9 +46,7 @@ import { Link } from "react-router-dom";
         } 
   }
 
-     const goBack = (e) => {
-         console.log(e);
-     }
+   
 
 
     return (

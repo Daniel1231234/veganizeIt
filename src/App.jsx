@@ -5,9 +5,8 @@ import { AppHeader } from "./cmps/AppHeader"
 import { CheckIngsPage } from "./pages/CheckIngsPage"
 import { CheckWinePage } from "./pages/CheckWinePage"
 import { useState } from "react"
-// import ImgContext from "./store/store"
 import imgUrl from "./assets/theme.jpg"
-// import { ScannerPage } from "./pages/ScannerPage"
+
 
 
 function App() {

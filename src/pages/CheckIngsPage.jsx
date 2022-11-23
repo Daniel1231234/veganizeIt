@@ -16,18 +16,35 @@ export const CheckIngsPage = () => {
     setShow(false)
   } 
 
-  const handleShowIng = (enteredIng) => {
-    let isIngVegan 
-    if (typeof enteredIng === 'string') isIngVegan = checkIngSerivce.checkVegan(enteredIng)
-    if (typeof enteredIng === 'object') isIngVegan = checkIngSerivce.checkVegan(enteredIng.name)
-    if (!isIngVegan) {
-        setModalContent(null)
-        setShow(true)
-        return
-      }
+  const handleShowIng = async (enteredIng) => {
+    let ing = await checkIngSerivce.checkVegan(enteredIng)
+    console.log(ing, ' FINEL DEST!')
+
+    if (!ing || ing.length === 0) {
+      setModalContent(null)
+      setShow(true)
+    } else {
+      setModalContent(ing.isVegan, ing.name)
+      setShow(true)
+    }
+        //      if (ing) {
+        //         setModalContent(ing.isVegan, ing.name)
+        //         setShow(true)
+        //  } else {
+        //     setModalContent(null)
+        //     setShow(true)
+        //  }
+    // let isIngVegan 
+    // if (typeof enteredIng === 'string') isIngVegan = checkIngSerivce.checkVegan(enteredIng)
+    // if (typeof enteredIng === 'object') isIngVegan = checkIngSerivce.checkVegan(enteredIng.name)
+    // if (!isIngVegan) {
+    //     setModalContent(null)
+    //     setShow(true)
+    //     return
+    //   }
     
-    setModalContent(isIngVegan[0].isVegan, isIngVegan[0].name)
-    setShow(true)
+    // setModalContent(isIngVegan[0].isVegan, isIngVegan[0].name)
+    // setShow(true)
   }
   
 

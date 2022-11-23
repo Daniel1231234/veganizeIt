@@ -1,20 +1,34 @@
-import Card from 'react-bootstrap/Card';
 import { Link } from "react-router-dom"
 
 
-export function LinkCard(props) {
+export const LinkCard = (props) => {
+
   return (
-    <div className="card-link">
-      <Card>
-        <Card.Body>
-          <Card.Title>{ props.title}</Card.Title>
-        </Card.Body>
-        <Card.Footer>
-            <Link to={props.dir}>{props.dirName }</Link>
-        </Card.Footer>
-      </Card>
-      <br />
+    <div className="flip-card-container card-link">
+      <div className="flip-card">
+        <div className="card-front">
+          <figure>
+            <figcaption>
+              { props.title}
+            </figcaption>
+          </figure>
+        </div>
+        <div className="card-back">
+           <Link to={props.dir}>{props.dirName }</Link>
+          <div className="design-container">
+            <span className="design design--1"></span>
+            <span className="design design--2"></span>
+            <span className="design design--3"></span>
+            <span className="design design--4"></span>
+            <span className="design design--5"></span>
+            <span className="design design--6"></span>
+            <span className="design design--7"></span>
+            <span className="design design--8"></span>
+        </div>
+        </div>
+      </div>
     </div>
-  );
+  )
 }
+
 
