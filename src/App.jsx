@@ -27,10 +27,6 @@ function App() {
 export default App
 
 
-//! TODO: 
-//? 1. WISHLIST
-//? 2.18A RECIPES
-//? 3. UI
 
 
 

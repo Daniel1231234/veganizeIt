@@ -8,7 +8,7 @@
 }
 
 
-.checkvegan a {
+.checkvegan button {
     position: fixed;
     bottom: 2rem;
     right: 1rem;
@@ -30,15 +30,15 @@
 }
 
 
-.checkvegan a:not(:disabled):hover,
-.checkvegan a:not(:disabled):focus {
+.checkvegan button:not(:disabled):hover,
+.checkvegan button:not(:disabled):focus {
     outline: 0;
     background: #8a2b06;
     color: white;
     box-shadow: 0 0 0 2px rgba(0, 0, 0, .2), 0 3px 8px 0 rgba(0, 0, 0, .15);
 }
 
-.checkvegan a:disabled {
+.checkvegan button:disabled {
     filter: saturate(0.2) opacity(0.5);
     -webkit-filter: saturate(0.2) opacity(0.5);
     cursor: not-allowed;

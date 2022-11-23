@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { ModalWrapper } from "../cmps/UI/ModalWrapper";
 import { checkWineService } from "../services/checkWineService";
 import classes from "./CheckIfVegan.module.css"
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
    const [content, setContent] = useState('')
    const [title, setTitle] = useState('')
         
-
+const navigate = useNavigate()
      const handleShowWine = async (enteredWine) => {
         let winery =  await checkWineService.checkWinerie(enteredWine)
          console.log(winery, ' FINEL DEST!');
@@ -60,9 +60,9 @@ import { Link } from "react-router-dom";
                 <h2 className="text-center">יינות ויקבים </h2>
                  <CheckWines isvegan={handleShowWine}  />
             </div>    
-                <Link to="/">
+                <button onClick={() => {navigate("/")}}>
                 חזרה לדף הבית
-                </Link>
+                </button>
         </div>
     )
 }

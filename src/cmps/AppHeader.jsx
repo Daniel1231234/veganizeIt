@@ -1,48 +1,23 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import { LinkContainer } from 'react-router-bootstrap'
-import NavDropdown from 'react-bootstrap/NavDropdown';
-
-
-
-
-
 import classes from "./Header.module.css"
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 export function AppHeader(props) {
-    const [theme, setTheme] = useState(true);
+  const [theme, setTheme] = useState(true);
+  const navigate = useNavigate()
 
   return (
     <>
       <header className={classes.header}>
         <h1>טבען-לי</h1>
         <div className={classes.navs}>
-          <Link to="/winery">יקבים</Link>
-          <Link to="/ings">מרכיבים</Link>
+          <NavLink to="/winery">יקבים</NavLink>
+          <NavLink to="/ings">מרכיבים</NavLink>
         </div>
       </header>
       <div  className={classes['main-image']}>
         <img src={props.img} alt="" />
       </div>
-
-
-
-      {/* <Navbar  bg="dark" variant="dark"  className="mb-1" style={{lineHeight:'0'}}>
-        <Container>
-      
-          <LinkContainer to="/veganizeIt/">
-            <Navbar.Brand >
-            <div className='logo'>
-              טבען-לי
-            </div>
-            </Navbar.Brand>
-            </LinkContainer>
-          
-        </Container>
-      </Navbar> */}
     </>
   );
 }
