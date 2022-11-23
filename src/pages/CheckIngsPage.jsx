@@ -4,8 +4,7 @@ import { useState } from 'react';
 import { checkIngSerivce } from "../services/checkIngService"
 import { ModalWrapper } from "../cmps/UI/ModalWrapper";
 import classes from "./CheckIfVegan.module.css"
-import { Link, useNavigate } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 
 
 
@@ -14,7 +13,6 @@ export const CheckIngsPage = () => {
   const [content, setContent] = useState('')
   const [title, setTitle] = useState('')
  
-  const navigate = useNavigate()
 
   const handleClose = (e) => {
     setShow(false)
@@ -31,11 +29,8 @@ export const CheckIngsPage = () => {
       setModalContent(ing.isVegan, ing.name)
       setShow(true)
     }
-
   }
   
-
-
 
     const setModalContent = (resIsVegan, resItem) => {
     console.log(resIsVegan);
@@ -54,10 +49,6 @@ export const CheckIngsPage = () => {
   }
 
 
-  const goBack = (e) => {
-
-  }
-
   return (
     <div className={classes.checkvegan}>
       <ModalWrapper
@@ -70,9 +61,9 @@ export const CheckIngsPage = () => {
       <h2 className="text-center">מרכיבים</h2>
         <CheckIngr isvegan={handleShowIng} />
       </div>
-          <button onClick={() => {navigate("/")}}>
+          <Link to="/">
                 חזרה לדף הבית
-          </button>
+          </Link>
       </div>
   )
 }
