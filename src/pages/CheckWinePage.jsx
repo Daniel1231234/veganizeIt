@@ -3,7 +3,7 @@ import { CheckWines } from "../cmps/CheckIfVegan/CheckIWines"
 import { useState } from 'react';
 import { ModalWrapper } from "../cmps/UI/ModalWrapper";
 import { checkWineService } from "../services/checkWineService";
-import classes from "./CheckIfVegan.module.css"
+// import classes from "./CheckIfVegan.module.css"
 import { Link } from "react-router-dom";
 
 
@@ -50,7 +50,7 @@ import { Link } from "react-router-dom";
 
 
     return (
-        <div className={classes.checkvegan}>
+        <div className="checkvegan">
             <ModalWrapper
                 show={show}
                 onHide={handleClose}

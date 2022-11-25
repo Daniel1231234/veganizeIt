@@ -31,15 +31,9 @@ export function FormWrapper(props) {
         onSelect={handleOnSelect}
         placeholder={props.placeholder}
         onSearch={props.handleInputVal} />
-      {/* <AutoComplete items={props.items} placeholder={props.placeholder} submit={props.submit} handleInputVal={props.handleInputVal} /> */}
-        {/* <Form.Control  size="sm" type="search"  ref={props.getRef} placeholder={props.placeholder} /> */}
         <Form.Text className="text-muted">
           {props.muted}
         </Form.Text>
-{/* 
-      <Button  size="sm" variant="success" type="submit" aria-expanded={props.openUl}  aria-controls="collapse" onClick={props.btnClick}>
-        חפש
-      </Button> */}
     </Form>
   );
 }

@@ -1,4 +1,5 @@
 // @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@1&family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
 
 // Setup
 // @import "setup/variables";
@@ -19,6 +20,7 @@
 @import "pages/wish-list-page";
 @import "pages/home-page";
 @import "pages/checkIfVegan";
+@import "pages/_contactPage";
 
 // Components
 @import "cmps/app-header";
@@ -28,9 +30,9 @@
 @import "cmps/search-bar";
 @import "cmps/_scanner";
 
-.main-app {
-    min-height: 100vh;
-}
+// .main-app {
+//     min-height: 100vh;
+// }
 
 
 

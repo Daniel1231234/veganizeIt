@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 
 export const LinkCard = (props) => {
 
+
   return (
     <div className="flip-card-container card-link">
       <div className="flip-card">
@@ -12,6 +13,7 @@ export const LinkCard = (props) => {
               { props.title}
             </figcaption>
           </figure>
+          <img src={props.svg} alt="" />
         </div>
         <div className="card-back">
            <Link to={props.dir}>{props.dirName }</Link>

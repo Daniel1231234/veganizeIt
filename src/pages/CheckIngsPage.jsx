@@ -3,7 +3,7 @@ import { CheckIngr } from "../cmps/CheckIfVegan/CheckIngr"
 import { useState } from 'react';
 import { checkIngSerivce } from "../services/checkIngService"
 import { ModalWrapper } from "../cmps/UI/ModalWrapper";
-import classes from "./CheckIfVegan.module.css"
+// import classes from "./CheckIfVegan.module.css"
 import { Link } from "react-router-dom";
 
 
@@ -50,7 +50,7 @@ export const CheckIngsPage = () => {
 
 
   return (
-    <div className={classes.checkvegan}>
+    <div className="checkvegan">
       <ModalWrapper
         show={show}
         onHide={handleClose}
@@ -58,7 +58,7 @@ export const CheckIngsPage = () => {
         content={content} />
       
       <div className='modal-container'>
-      <h2 className="text-center">מרכיבים</h2>
+      <h2 className="text-center">מרכיבי מזון</h2>
         <CheckIngr isvegan={handleShowIng} />
       </div>
           <Link to="/">

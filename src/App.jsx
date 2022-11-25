@@ -6,6 +6,7 @@ import { CheckIngsPage } from "./pages/CheckIngsPage"
 import { CheckWinePage } from "./pages/CheckWinePage"
 // import { useState } from "react"
 import imgUrl from "./assets/theme.jpg"
+import { ContactPage } from "./pages/ContactPage"
 
 
 
@@ -16,9 +17,10 @@ function App() {
           <div className="main-app" >
             <AppHeader img={imgUrl} />
             <Routes>
-              <Route path="/" element={<HomePage />} />
+              <Route exact path="/" element={<HomePage />} />
               <Route path="/winery" element={<CheckWinePage />} />
               <Route path="/ings" element={<CheckIngsPage />} />
+              <Route path="/contact" element={<ContactPage />} />
             </Routes>
           </div>
   )
