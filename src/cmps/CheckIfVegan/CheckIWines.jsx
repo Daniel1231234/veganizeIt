@@ -35,7 +35,7 @@ export function CheckWines({ isvegan, open, setOpen }) {
     isvegan(val)
   }
   
-    
+    if (!totalWines) return <div>Loading...</div>
   return (
       <div className="check-wines bottom-divider">
       <FormWrapper

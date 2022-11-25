@@ -1,9 +1,7 @@
-
 import { CheckIngr } from "../cmps/CheckIfVegan/CheckIngr"
 import { useState } from 'react';
 import { checkIngSerivce } from "../services/checkIngService"
 import { ModalWrapper } from "../cmps/UI/ModalWrapper";
-// import classes from "./CheckIfVegan.module.css"
 import { Link } from "react-router-dom";
 
 

@@ -40,7 +40,7 @@ export function CheckIngr({ isvegan, open, setOpen }) {
     isvegan(val)
   }
 
-
+if (!totalIngs) return <div>Loading...</div>
   return (
     <div className="check-ing"  >
       <FormWrapper
