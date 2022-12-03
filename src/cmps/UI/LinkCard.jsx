@@ -13,7 +13,7 @@ export const LinkCard = (props) => {
               { props.title}
             </figcaption>
           </figure>
-          <img src={props.svg} alt="" />
+          {props.svg && <img src={props.svg} alt="" /> }
         </div>
         <div className="card-back">
            <Link to={props.dir}>{props.dirName }</Link>

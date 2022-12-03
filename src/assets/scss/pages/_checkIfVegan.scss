@@ -10,8 +10,8 @@
 
 .checkvegan a {
     position: fixed;
-    bottom: 2rem;
-    right: 1rem;
+    top: 10px;
+    left: 10px;
     background-color: #8a2b06;
     border-radius: 12px;
     color: white;
@@ -26,7 +26,6 @@
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-
 }
 
 
@@ -67,11 +66,3 @@
     font-family: sans-serif;
 }
 
-
-
-
-@media (max-width:575px) {
-    .modal-container {
-        top: 31vh;
-    }
-}

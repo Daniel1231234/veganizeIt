@@ -25,6 +25,7 @@ const [status, setStatus] = useState("שלח")
     }
 
   return (
+    <div className="contact-page">
     <div className="modal-container">
         <div className="desc">
             <h5 className="text-center p-3 bottom-divider">דברו איתי</h5>      
@@ -53,6 +54,7 @@ const [status, setStatus] = useState("שלח")
           <Link to="/">
                 חזרה לדף הבית
           </Link>
-    </div>
+      </div>
+      </div>
   )
 }

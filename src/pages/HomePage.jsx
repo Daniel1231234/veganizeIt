@@ -5,6 +5,7 @@ import ingSvg from "../assets/imgs/ings3.svg"
 import conSvg from "../assets/imgs/vegan2.svg"
 
 export function HomePage() {
+
   return (
     <>
       <div className="home-page">
@@ -13,9 +14,9 @@ export function HomePage() {
             <p>האתר שמאפשר לכם לחפש יינות ומרכיבים ולבדוק האם הם טבעוניים.</p>
         </div>
         <div className="home-links" >
+          <LinkCard svg={ingSvg} title="לבדיקת מרכיבי מזון" dir="/ing" dirName="לחץ כאן!" />
           <LinkCard svg={wineSvg} title="לבדיקת יינות ויקבים" dir="/winery" dirName="לחץ כאן!" />
-          <LinkCard svg={ingSvg} title="לבדיקת מרכיבי מזון" dir="/ings" dirName="לחץ כאן!" />
-          <LinkCard svg={conSvg} title="שמרו על קשר!" dir="/contact" dirName="לחץ כאן!" />
+          <LinkCard title="רוצים להוסיף למאגר?" dir="/contact" dirName="לחץ כאן!" />
         </div>
       </div>
     </>

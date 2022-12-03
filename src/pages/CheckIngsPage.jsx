@@ -1,5 +1,5 @@
 import { CheckIngr } from "../cmps/CheckIfVegan/CheckIngr"
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { checkIngSerivce } from "../services/checkIngService"
 import { ModalWrapper } from "../cmps/UI/ModalWrapper";
 import { Link } from "react-router-dom";
@@ -10,7 +10,16 @@ export const CheckIngsPage = () => {
   const [show, setShow] = useState(false)
   const [content, setContent] = useState('')
   const [title, setTitle] = useState('')
- 
+  const [totalIngs, setTotalIngs] = useState([])
+
+    useEffect(() => {
+    const load = async () => {
+      const ings = await checkIngSerivce.getAllIngs()
+      setTotalIngs(ings)
+    }
+  
+  load()
+  }, [])
 
   const handleClose = (e) => {
     setShow(false)
@@ -47,8 +56,12 @@ export const CheckIngsPage = () => {
   }
 
 
+  if (!totalIngs) return <div>Loading...</div>
   return (
+    <div className="ings-page">
     <div className="checkvegan">
+
+          
       <ModalWrapper
         show={show}
         onHide={handleClose}
@@ -57,11 +70,10 @@ export const CheckIngsPage = () => {
       
       <div className='modal-container'>
       <h2 className="text-center">מרכיבי מזון</h2>
-        <CheckIngr isvegan={handleShowIng} />
+      <CheckIngr isvegan={handleShowIng} ings={totalIngs} />
+      <Link to="/">חזרה לדף הבית </Link>
       </div>
-          <Link to="/">
-                חזרה לדף הבית
-          </Link>
+      </div>
       </div>
   )
 }

@@ -1,28 +1,32 @@
 .contact-page {
-    // position: absolute;
-    // top: 50%;
-    // left: 50%;
-    // transform: translate(-50%, -40%);
-    // max-width: 1000px;
-    // width: 100%;
-    // padding: 1rem;
-    // background-color: #C21010;
-    // border-radius: 30px;
-    // opacity: 0.94;
-    // color: white;
-
-        font-size: 1.5rem;
     
-    form {
-        padding: 0 5rem;
-    }
+.modal-container {
+a {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background-color: #5F8D4E;
+    border-radius: 12px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 10px 15px;
+    text-align: center;
+    transition: 200ms;
+    box-sizing: border-box;
+    border: 0;
+    font-size: 16px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+}
 
-    button {
-        width:50%;
-        margin:1rem auto;
-    }
+}
 
-    small {
-        color:white !important;
+
+@media (max-width:500px) {
+    .modal-container a {   
+        display: none;
     }
 }

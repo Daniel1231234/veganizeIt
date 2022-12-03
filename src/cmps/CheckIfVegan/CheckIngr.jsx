@@ -1,26 +1,24 @@
 import { useState } from "react"
 import { checkIngSerivce } from "../../services/checkIngService"
 import { FormWrapper } from "../UI/FormWrapper"
-import useDetectKeyboardOpen from "use-detect-keyboard-open"
 import { useEffect } from "react"
 
 
 
-export function CheckIngr({ isvegan, open, setOpen }) {
+export function CheckIngr({ isvegan, open, setOpen, ings }) {
   const [searchInput, setSearchInput] = useState("")
-  const [totalIngs, setTotalIngs] = useState("")
+  // const [totalIngs, setTotalIngs] = useState("")
   // const totalIngs = checkIngSerivce.getAllIngs()
-  const isKeyboardOpen = useDetectKeyboardOpen()
 
 
-  useEffect(() => {
-    const load = async () => {
-      const ings = await checkIngSerivce.getAllIngs()
-      setTotalIngs(ings)
-    }
+  // useEffect(() => {
+  //   const load = async () => {
+  //     const ings = await checkIngSerivce.getAllIngs()
+  //     setTotalIngs(ings)
+  //   }
   
-  load()
-  }, [])
+  // load()
+  // }, [])
 
 
   const checkVegan = (e) => {
@@ -40,7 +38,7 @@ export function CheckIngr({ isvegan, open, setOpen }) {
     isvegan(val)
   }
 
-if (!totalIngs) return <div>Loading...</div>
+
   return (
     <div className="check-ing"  >
       <FormWrapper
@@ -52,7 +50,7 @@ if (!totalIngs) return <div>Loading...</div>
         label={"רשום שם של פריט מזון"}
         muted={"שים לב! חלק מהמוצרים והרכיבים במאגר רשומים באנגלית"}
         submit={checkVegan}
-        items={totalIngs} />
+        items={ings} />
     </div>
   )
 }
