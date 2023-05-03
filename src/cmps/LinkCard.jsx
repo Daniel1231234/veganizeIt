@@ -1,22 +1,18 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
-
-export const LinkCard = (props) => {
-
-
+export const LinkCard = ({title, svg, onClick, href}) => {
+  
   return (
     <div className="flip-card-container card-link">
       <div className="flip-card">
         <div className="card-front">
           <figure>
-            <figcaption>
-              { props.title}
-            </figcaption>
+            <figcaption>{title}</figcaption>
           </figure>
-          {props.svg && <img src={props.svg} alt="" /> }
+          {svg && <img src={svg} alt={title} />}
         </div>
         <div className="card-back">
-           <Link to={props.dir}>{props.dirName }</Link>
+          {href ? <Link to={href}>לחץ כאן</Link> :  <button className="btn-action" onClick={onClick}>לחץ כאן</button>}
           <div className="design-container">
             <span className="design design--1"></span>
             <span className="design design--2"></span>
@@ -26,11 +22,9 @@ export const LinkCard = (props) => {
             <span className="design design--6"></span>
             <span className="design design--7"></span>
             <span className="design design--8"></span>
-        </div>
+          </div>
         </div>
       </div>
     </div>
-  )
-}
-
-
+  );
+};

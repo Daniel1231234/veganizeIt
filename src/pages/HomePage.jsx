@@ -1,33 +1,37 @@
-
-import { LinkCard } from "../cmps/UI/LinkCard"
-import wineSvg from "../assets/imgs/wine2.svg"
-import ingSvg from "../assets/imgs/ings3.svg"
-import conSvg from "../assets/imgs/vegan2.svg"
+import { LinkCard } from "../cmps/LinkCard";
+import wineSvg from "../assets/imgs/wine2.svg";
+import { useState } from "react";
+import SearchBar from "../cmps/SearchBar";
 
 export function HomePage() {
+  const [showSearchBar, setShowSearchBar] = useState(false)
+
+  const revealSearch = (e) => {
+    setShowSearchBar(true)
+  }
 
   return (
-    <>
-      <div className="home-page">
+    <div className="home-page">
+      {showSearchBar ? (
+        <SearchBar setShowSearchBar={setShowSearchBar} />
+      ) : (
+        <>
           <div className="headline">
-            <h2 style={{fontSize:'2rem', marginTop:'0'}}>ברוכים הבאים לפק"ל הטבעוני</h2>
+            <h2 style={{ fontSize: "2rem", marginTop: "0" }}>
+              ברוכים הבאים לפק"ל הטבעוני
+            </h2>
             <p>האתר שמאפשר לכם לחפש יינות ומרכיבים ולבדוק האם הם טבעוניים.</p>
-        </div>
-        <div className="home-links" >
-          <LinkCard svg={ingSvg} title="לבדיקת מרכיבי מזון" dir="/ing" dirName="לחץ כאן!" />
-          <LinkCard svg={wineSvg} title="לבדיקת יינות ויקבים" dir="/winery" dirName="לחץ כאן!" />
-          <LinkCard title="רוצים להוסיף למאגר?" dir="/contact" dirName="לחץ כאן!" />
-        </div>
-      </div>
-    </>
-  )
+          </div>
+          <div className="home-links">
+            <LinkCard
+              svg={wineSvg}
+              title="חיפוש יינות טבעוניים"
+              onClick={revealSearch}
+            />
+            {/* <LinkCard title="חפש מוצר לפי ברקוד" href="/scanner" /> */}
+          </div>
+        </>
+      )}
+    </div>
+  );
 }
-
-
-
-
-
-
-
-
-
